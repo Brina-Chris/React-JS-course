@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 // import Counter from './components/counter/Counter'
-// import Header from './components/header/header'
+import Header from './components/header/header'
 // import Hero from './components/hero/Hero'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -14,6 +14,7 @@ import ElectronicsPage from './pages/ElectronicsPage';
 import ClothingsPage from './pages/ClothingsPage';
 import Randompage from './pages/randompage';
 import ProductDetail from './pages/ProductDetail';
+import MoviePage from './pages/MoviePage';
 
 
 
@@ -35,12 +36,13 @@ function App() {
   return (
     <BrowserRouter>
       <section className='home' style={{ backgroundColor: bgColor }}>
-        {/* <Header/> */}
+        <Header/>
         <Routes>
           <Route path="/" element={<HomePage/>} />          
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/movies" element={<Moviespage />} />
+          <Route path="/movies/:movieId" element={<MoviePage />} />
           <Route path="/:pageId" element={<Randompage />} />
           <Route path="/404" element={<PageNotFound/>} />
           

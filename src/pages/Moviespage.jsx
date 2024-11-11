@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import MovieCard from "../components/moviecard/MovieCard";
 
 
 const Moviespage = () => {
     const api_key = "a3ec5cef31325905723a0ad860da9c7e";
-    const baseUrl = "https://image.tmdb.org/t/p/original/";
+    // const baseUrl = "https://image.tmdb.org/t/p/original/";
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [isLoading, setIsloading] = useState(false);
 
@@ -23,7 +24,7 @@ const Moviespage = () => {
       try {
         const response = await fetch(requests.fetchTrending);
         const data = await response.json();
-        // console.log(data.results);
+        // console.log(data);
         setTrendingMovies(data.results);
         setIsloading(false);
       } catch (error) {
@@ -32,9 +33,9 @@ const Moviespage = () => {
       }      
     }
 
-    useEffect(() => {
-      console.log({trendingMovies})
-    }, [trendingMovies]);
+    // useEffect(() => {
+    //   console.log({trendingMovies})
+    // }, [trendingMovies]);
 
     useEffect(() => {
       getTrendingMovies();
@@ -46,14 +47,29 @@ const Moviespage = () => {
         isLoading ? (
           <h1>Loading.....</h1>
         ) : (
-          trendingMovies.length > 0 ?
-        trendingMovies.map(movie => (
-          <div key={movie.id}>
-            <img src={`${baseUrl}${movie.backdrop_path}`} alt={movie.title} />
-            <h3>{movie.title}</h3>
-            <p>{movie.overview}</p>
-          </div>
-        )) : (
+          trendingMovies.length > 0 ?(
+          <section className="trending-movies">
+            <h1>Trending Movies</h1>
+            <div className="movies_container">
+              {
+                trendingMovies.map((movie) => (
+                    <MovieCard
+                      key={movie.id}
+                      movie={movie}
+                    />
+                  // <div key={id} className="Movie-card">
+                  //   <div className="img-wrap">
+                  //     <img src={`${baseUrl}${backdrop_path}`} alt={name || original_title || title} />
+                  //   </div>
+                  //   <div className="content">
+                  //     <h3>{name || original_title || title}</h3>
+                  //     <p>{overview}</p>
+                  //     <span className="rating">{vote_average}</span>
+                  //   </div>
+                  // </div>
+                ))}
+            </div>
+          </section>): (
           <h1>
             Oops!!, you have no movies
           </h1>
