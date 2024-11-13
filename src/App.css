@@ -12,3 +12,88 @@
 h1{
   font-size: 50px !important;
 }
+.parent{
+  border: 2px solid white;
+  width: 80%;
+  margin-inline: auto;
+  margin-top: 40px;
+  padding: 20px;
+}
+.child{
+  border: 2px solid white;
+  width: 80%;
+  margin-inline: auto;
+  margin-top: 40px;
+  padding: 15px;
+  font-size: 20px;
+}
+.grand-child{
+  border: 2px solid white;
+  width: 70%;
+  margin-inline: auto;
+  margin-top: 40px;
+  padding: 15px;
+  font-size: 16px;
+}
+.trending-movies{
+  margin-top: 50px;
+  width: min(90%, 1300px);
+  margin-inline: auto;
+}
+.movies_container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;    
+}
+.Movie-card{
+  background-color: green;
+  padding: 15px;
+  border: 3px solid black;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  text-decoration: none;
+}
+.Movie-card .img-wrap{
+  overflow: hidden;
+  border-radius: 15px;
+  object-fit: cover;
+  height: 200px;
+}
+.img-wrap img{
+  transition: transform 0.3s ease-in-out;
+}
+.img-wrap img:hover{
+  transform: scale(1.3);
+}
+.rating{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border-radius: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.hero-image{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.casts{
+  display: flex;
+}
+.casts .cast-card{
+  width: 200px;
+  overflow: hidden;
+}
+.casts .cast-card img{
+  width: 100%;
+  height: 100%;
+}
